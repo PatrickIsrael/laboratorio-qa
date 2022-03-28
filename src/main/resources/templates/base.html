@@ -1,0 +1,33 @@
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script>  
+	jQuery(function($){
+		$(".cpf").mask('999.999.999-99');
+	});
+
+	</script>
+	<style>
+		.logo-container{
+			background-color: #CCFFCC;
+		}
+		.login{
+			color: #fff;
+		}	  
+		
+	</style>
+</head>
+
+<div th:fragment="logo" class="logo-container mb-3 p-1 d-flex justify-content-center">
+	<div>
+		<img  src="https://i.pinimg.com/originals/d2/bd/df/d2bddf92f4d7c4bddc81c8c11e427322.jpg" width="350" >
+	</div>
+		
+</div>
+
+
+<div th:fragment="titulo(valor)" class="jumbotron mb-3">
+	<h1 class="display-4" th:text="${valor}"></h1>
+</div>

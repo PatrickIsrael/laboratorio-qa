@@ -1,0 +1,58 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+		<div th:replace="~{base :: titulo('Usuários')}"></div>
+		
+		<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
+			<div class="navbar-nav">
+				<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link"  href="/home">Todos</a>
+				<a th:classappend="${status} == 'cadastrado' ? 'active'" class="nav-item nav-link" href="/home/cadastrado">Cadastrados</a>
+				<a th:classappend="${status} == 'autorizado' ? 'active'" class="nav-item nav-link" href="/home/autorizado">Autorizados</a>
+				<a th:classappend="${status} == 'cancelado' ? 'active'" class="nav-item nav-link" href="/home/cancelado">Cancelados</a>
+			</div>
+			<a href="/usuario/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
+		</nav>
+		<div class="card mb-3" th:each="usuario : ${usuarios}">
+			<th:block th:switch="${usuario.status.name()}" >
+				<div th:case="'CADASTRADO'" class="alert-warning card-header" th:text="${usuario.nome}">Pedido</div>
+				<div th:case="'AUTORIZADO'" class="alert-success card-header" th:text="${usuario.nome}">Pedido</div>
+				<div th:case="'CANCELADO'" class="alert-danger card-header" th:text="${usuario.nome}">Pedido</div>
+			</th:block>			
+				<div class="card-body">
+					<div class="form-row">
+						<div class="col-12 col-sm-9 mb-3" >
+							
+								<div class="form-group row">
+									<label for="nome" class="col-sm-4 col-form-label">Nome: </label>
+									<div class="col-sm-9"> 
+										<input disabled class="form-control" th:value="${usuario.nome}">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="email" class="col-sm-4 col-form-label">E-mail: </label>
+									<div class="col-sm-9"> 
+										<input disabled class="form-control" th:value="${usuario.email}">
+									</div>
+								</div>
+								
+								<div class="form-group row">
+									<label for="cpf" class="col-sm-4 col-form-label">CPF:</label>
+									<div class="col-sm-9"> 
+										<input disabled  class="cpf form-control" type="text" th:value="${usuario.cpf}">
+									</div>
+								</div>
+						
+						</div>
+						<div  class="col-12 col-sm-3">
+							<div>
+								<img class="img-thumbnail" th:src="${usuario.urlFoto}" src="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

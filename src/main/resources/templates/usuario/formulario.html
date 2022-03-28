@@ -1,0 +1,72 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+		<div th:replace="~{base :: titulo('Novo Usuário')}"></div>
+			<div class="card">
+				<form th:object="${requisicaoNovoUsuario}" class="card-body" action="/usuario/novo" method="POST">
+					<div  class="form-group row">
+						<label for="nome" class="col-sm-1 col-form-label">Nome: </label>
+						<div class="col-sm-11">
+							<input  th:field="*{nome}" th:errorclass="is-invalid" class="form-control" placeholder="Nome Completo">
+							<div class="invalid-feedback" th:errors="*{nome}"></div>
+						</div>
+						<label for="espaco" class="col-sm-1 col-form-label"> </label>
+						<div class="col-sm-11">						
+							<small>Informe o nome completo.</small>
+						</div>						
+					</div>
+					<div  class="form-group row">
+						<label for="cpf" class="col-sm-1 col-form-label">CPF: </label>
+						<div class="col-sm-11">
+							<input  th:field="*{cpf}" th:errorclass="is-invalid" class="form-control cpf" placeholder="Seu CPF">
+							<div class="invalid-feedback" th:errors="*{cpf}"></div>
+						</div>
+						<label for="espaco" class="col-sm-1 col-form-label"> </label>
+						<div class="col-sm-11">
+							<small>Informe o CPF.</small>
+						</div>
+					</div>
+					<div  class="form-group row">
+						<label for="email" class="col-sm-1 col-form-label">E-mail:</label>
+						<div class="col-sm-11">
+							<input th:field="*{email}" th:errorclass="is-invalid" class="form-control" placeholder="Seu E-mail">
+							<div class="invalid-feedback" th:errors="*{email}"></div>
+						</div>	
+						<label for="espaco" class="col-sm-1 col-form-label"> </label>
+						<div class="col-sm-11">
+							<small>Informe o E-mail.</small>
+						</div>
+					</div>
+					<div  class="form-group row">
+						<label for="senha" class="col-sm-1 col-form-label">Senha:</label>
+						<div class="col-sm-11">
+							<input th:field="*{senha}" type="password" th:errorclass="is-invalid" class="form-control" placeholder="Senha">
+							<div class="invalid-feedback" th:errors="*{senha}"></div>
+						</div>	
+						<label for="espaco" class="col-sm-1 col-form-label"> </label>
+						<div class="col-sm-11">
+							<small>Informe uma senha válida.</small>
+						</div>	
+					</div>
+					<div  class="form-group row">
+						<label for="urlFoto" class="col-sm-1 col-form-label">Foto</label>
+						<div class="col-sm-11">
+							<input th:field="*{urlFoto}" th:errorclass="is-invalid" class="form-control" placeholder="Url da Foto">
+							<div class="invalid-feedback" th:errors="*{urlFoto}"></div>
+						</div>
+						<label for="espaco" class="col-sm-1 col-form-label"> </label>
+						<div class="col-sm-11">
+							<small>Copie a url da sua foto e cole aqui.</small>
+						</div>	
+					</div>
+					<div class="d-flex justify-content-end">
+						<button class="btn btn-primary  mt-2 " type="submit">Cadastrar</button>
+					</div >
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+	
